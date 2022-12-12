@@ -10,16 +10,19 @@ public:
     //     this->x = x;
     //     this->y = y;
     // }
-    OpeatorOverload(int _x = 0, int _y = 0)
+    OpeatorOverload(){
+        
+    }
+    OpeatorOverload(int _x , int _y)
     {
         x = _x;
         y = _y;
     }
-    OpeatorOverload operator+(OpeatorOverload &obj)
+    OpeatorOverload operator*(OpeatorOverload &obj)
     {
         OpeatorOverload res;
-        res.x = x + obj.x;
-        res.y = y + obj.y;
+        res.x = x * obj.x;
+        res.y = y * obj.y;
         return res;
     }
     void print()
@@ -30,6 +33,6 @@ public:
 int main()
 {
     OpeatorOverload M1(1, 2), M2(3, 4);
-    OpeatorOverload M3 = M1 + M2;
+    OpeatorOverload M3 = M1 * M2;
     M3.print();
 }
