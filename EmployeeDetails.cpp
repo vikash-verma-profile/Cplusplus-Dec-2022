@@ -23,6 +23,9 @@ public:
     }
     void ReadInputs();
     void DisplayDetails();
+    ~EmpDetails(){
+        cout<<"Hi I am called";
+    };
 };
 
 void EmpDetails::ReadInputs()
