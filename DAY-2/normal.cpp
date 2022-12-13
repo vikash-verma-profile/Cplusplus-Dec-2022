@@ -41,7 +41,7 @@ public:
     // Overloading arrow operator so that members of
     //  T can be accessed like a pointer
     // used if T represents a class or struct or union type
-    SmartPtr *operator->(void)
+    SmartPtr *operator->()
     {
         cout << "Hello hi";
         return this;
@@ -50,18 +50,18 @@ public:
 
 int main()
 {
-    // SmartPtr ptr(new int());
-    // *ptr = 20;
-    // cout << *ptr << endl;
-    // SmartPtr ptr2(5);
-    // SmartPtr *ptr1 = &ptr2;
-    // //ptr1->x = 10;
-    // cout << endl<< ptr1->x;
+    SmartPtr ptr(new int());
+    *ptr = 20;
+    cout << *ptr << endl;
+    SmartPtr ptr2(5);
+    SmartPtr *ptr1 = &ptr2;
+    //ptr1->x = 10;
+    cout << endl<< ptr2->x;
 
-    MSart2 p(5);
-    MSart2* ptr=&p;
-    cout<<ptr->num;
-    cout<<p->num;
+    // MSart2 p(5);
+    // MSart2* ptr=&p;
+    // cout<<ptr->num;
+    // cout<<p->num;
     return 0;
 }
 
