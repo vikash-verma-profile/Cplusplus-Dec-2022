@@ -23,14 +23,14 @@ int main()
 
     // get pointer to data without taking ownership
     std::weak_ptr<int> weak1 = sptr;
-
+    cout<<sptr.use_count()<<endl;
     // delete managed object and acquire new pointer
     sptr.reset(new int);
     *sptr = 5;
 
     // get pointer to data without taking ownership
     std::weak_ptr<int> weak2 = sptr;
-
+    cout<<sptr.use_count()<<endl;
     // weak 1 is expired !!
     if (auto temp = weak1.lock())
     {
