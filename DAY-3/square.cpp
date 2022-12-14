@@ -10,7 +10,7 @@ using namespace std;
 // int accum = 0;
 // mutex accum_mutex;
 
-// atomic<int> accum(0);
+atomic<int> accum(0);
 // void square(int x)
 // {
 //     accum += x * x;
@@ -41,8 +41,22 @@ int main()
     // }
     // cout << "accum" << accum << endl;
 
-    auto a = async(&square, 10);
-    int v = a.get();
-    cout << "The thread returns " << v << endl;
+    // auto a = async(&square, 10);
+    // int v = a.get();
+    // cout << "The thread returns " << v << endl;
+
+    vector<future<int>> ths;
+    for (int i = 1; i <= 20; i++)
+    {
+        ths.push_back(async(&square, i));
+    }
+    // vector<future<int>> :: iterator it;
+
+    for (auto it = ths.begin(); it != ths.end(); ++it)
+    {
+        accum = accum + it->get();
+    }
+
+    cout << "accum" << accum << endl;
     return 0;
 }
