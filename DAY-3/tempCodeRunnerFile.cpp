@@ -1,0 +1,1 @@
+ friend void findMax(Largest);
